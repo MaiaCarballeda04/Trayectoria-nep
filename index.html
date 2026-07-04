@@ -91,12 +91,13 @@
             transform: translate(-50%, -50%);
             transform-style: preserve-3d;
         }
-        .orbit-1 { width: 90px; height: 90px; } 
-        .orbit-2 { width: 150px; height: 150px; border-style: dashed; } 
-        .orbit-3 { width: 220px; height: 220px; } 
-        .orbit-4 { width: 300px; height: 300px; }
-        .orbit-5 { width: 390px; height: 390px; border-color: rgba(238, 130, 238, 0.2); }
-        .orbit-6 { width: 500px; height: 500px; border-color: var(--arg-sun); border-style: dotted;}
+        .orbit-1 { width: 80px; height: 80px; } 
+        .orbit-2 { width: 130px; height: 130px; } 
+        .orbit-3 { width: 190px; height: 190px; border-style: dashed; } 
+        .orbit-4 { width: 250px; height: 250px; }
+        .orbit-5 { width: 310px; height: 310px; }
+        .orbit-6 { width: 400px; height: 400px; border-color: rgba(238, 130, 238, 0.3); border-style: dotted; }
+        .orbit-7 { width: 520px; height: 520px; border-color: var(--arg-sun); border-style: dotted;}
 
         /* Satélites en Órbitas */
         .sat-probe {
@@ -364,16 +365,18 @@
                 <div class="orbit orbit-4"></div>
                 <div class="orbit orbit-5"></div>
                 <div class="orbit orbit-6"></div>
+                <div class="orbit orbit-7"></div>
                 
                 <div id="nepRocket" class="nep-rocket-indicator"></div>
                 
                 <div id="sat-0" class="sat-probe"><span class="sat-label">Proyecto Bio / Canopus II (82-150 km)</span></div>
-                <div id="sat-1" class="sat-probe"><span class="sat-label">Proyecto ATENEA (~400 km)</span></div>
-                <div id="sat-2" class="sat-probe"><span class="sat-label">SAC-A (515 km)</span></div>
-                <div id="sat-3" class="sat-probe"><span class="sat-label">SAOCOM 1 (620 km)</span></div>
-                <div id="sat-4" class="sat-probe"><span class="sat-label">SAC-C / SAC-D (~700 km)</span></div>
-                <div id="sat-5" class="sat-probe"><span class="sat-label">SABIA-Mar (702 km)</span></div>
-                <div id="sat-6" class="sat-probe"><span class="sat-label">16 Psyche (Cinturón)</span></div>
+                <div id="sat-1" class="sat-probe"><span class="sat-label">SAC-A (370 km)</span></div>
+                <div id="sat-2" class="sat-probe"><span class="sat-label">SAOCOM 1 (620 km)</span></div>
+                <div id="sat-3" class="sat-probe"><span class="sat-label">SAC-D (670 km)</span></div>
+                <div id="sat-4" class="sat-probe"><span class="sat-label">SABIA-Mar 1 (700 km)</span></div>
+                <div id="sat-5" class="sat-probe"><span class="sat-label">SAC-C (705 km)</span></div>
+                <div id="sat-6" class="sat-probe"><span class="sat-label">Proyecto ATENEA (70.000 km)</span></div>
+                <div id="sat-7" class="sat-probe"><span class="sat-label">16 Psyche (Espacio Profundo)</span></div>
             </div>
         </div>
 
@@ -422,66 +425,77 @@
                     <div class="card-desc">El propulsor interplanetario cruza la atmósfera superior. En esta misma frontera física se gestó nuestro primer gran acercamiento a la historia aeroespacial: las misiones de la CNIE. Con los lanzamientos del Ratón Belisario (1967, Yarará) y el Mono Juan (1969, Canopus II), Argentina se posicionó como el cuarto país del mundo en enviar seres vivos al espacio y recuperarlos con vida, validando los primeros desarrollos nacionales en telemetría biológica y balística de combustible sólido.</div>
                 </div>
 
-                <div class="timeline-card" id="card-1" data-trigger-val="400">
+                <div class="timeline-card" id="card-1" data-trigger-val="370">
                     <div class="card-top-layout">
                         <div class="card-title-block">
-                            <div class="card-year">Vanguardia Actual (Órbita LEO: ~400 km)</div>
-                            <div class="card-title">2. Nuevas Arquitecturas de Soberanía: Proyecto ATENEA</div>
-                        </div>
-                        <div class="card-side-media has-img"><img src="ATENEA BADGE.png" alt="Proyecto ATENEA"></div>
-                    </div>
-                    <div class="card-desc">A medida que el propulsor gana velocidad estable, transita el plano operativo del Proyecto ATENEA. Esta iniciativa representa uno de los hitos más recientes y estratégicos del ecosistema científico local, orientado al desarrollo de constelaciones de satélites pequeños enfocados en misiones meteorológicas y de conectividad de baja latencia. Su enfoque demuestra la evolución hacia sistemas ágiles y modulares.</div>
-                </div>
-
-                <div class="timeline-card" id="card-2" data-trigger-val="515">
-                    <div class="card-top-layout">
-                        <div class="card-title-block">
-                            <div class="card-year">1998 (Altitud de Órbita LEO: 515 km)</div>
-                            <div class="card-title">3. Arquitectura de Cómputo e Instrumentación: Satélite SAC-A</div>
+                            <div class="card-year">1998 (Altitud de Órbita LEO: 370 km)</div>
+                            <div class="card-title">2. Arquitectura de Cómputo e Instrumentación: Satélite SAC-A</div>
                         </div>
                         <div class="card-side-media has-img"><img src="SAC-A.png" alt="SAC-A"></div>
                     </div>
                     <div class="card-desc">El vector alcanza la Órbita Baja Terrestre (LEO). Esta región coincide con el despliegue del SAC-A (CONAE), concebido para probar tecnologías informáticas nativas, paneles solares nacionales y sistemas de orientación por magnetómetros en condiciones extremas. Este paso técnico estructuró la capacidad de procesar datos en órbita, base fundamental para la aviónica autónoma de cualquier nave espacial actual.</div>
                 </div>
 
-                <div class="timeline-card" id="card-3" data-trigger-val="620">
+                <div class="timeline-card" id="card-2" data-trigger-val="620">
                     <div class="card-top-layout">
                         <div class="card-title-block">
                             <div class="card-year">2018 (Altitud de Órbita LEO: 620 km)</div>
-                            <div class="card-title">4. Gestión Energética Compleja: Constelación SAOCOM 1</div>
+                            <div class="card-title">3. Gestión Energética Compleja: Constelación SAOCOM 1</div>
                         </div>
                         <div class="card-side-media has-img"><img src="SAOCOM.png" alt="SAOCOM"></div>
                     </div>
                     <div class="card-desc">El propulsor requiere activar las bobinas iónicas para aceleración continua. El antecedente directo en alta demanda eléctrica en el espacio es la serie SAOCOM 1 de la CONAE. Su radar de apertura sintética (SAR) requirió el diseño de módulos de almacenamiento y acondicionamiento energético críticos, escala de ingeniería que un motor NEP optimiza mediante energía nuclear.</div>
                 </div>
 
-                <div class="timeline-card" id="card-4" data-trigger-val="700">
+                <div class="timeline-card" id="card-3" data-trigger-val="670">
                     <div class="card-top-layout">
                         <div class="card-title-block">
-                            <div class="card-year">2000 - 2011 (Altitud Heliosíncrona: ~700 km)</div>
-                            <div class="card-title">5. Atenuación del Entorno Radiante y Térmico: SAC-C / SAC-D</div>
+                            <div class="card-year">2011 (Altitud de Órbita LEO: 670 km)</div>
+                            <div class="card-title">4. Observatorio del Medio Ambiente: Observatorio SAC-D / Aquarius</div>
                         </div>
                         <div class="card-side-media has-img"><img src="SAC-D.png" alt="SAC-D"></div>
                     </div>
-                    <div class="card-desc">Al ingresar a zonas críticas de radiación cósmica y fluctuación térmica, los sistemas de a bordo se amparan en la experiencia de misiones emblemáticas. Los datos empíricos de degradación de sensores del SAC-C y los complejos sistemas de fluidos en bucle cerrado del SAC-D (desarrollados junto a agencias internacionales) proveen las bases científicas para la refrigeración y el blindaje de reactores avanzados de potencia.</div>
+                    <div class="card-desc">A los 670 km de altitud, el propulsor cruza la histórica órbita del SAC-D. Esta misión incorporó el instrumento Aquarius de la NASA junto a desarrollos argentinos complejos, diseñados específicamente para medir la salinidad oceánica y la humedad del suelo a escala global, aportando valiosos modelos térmicos y de fluidos en condiciones espaciales extremas.</div>
                 </div>
 
-                <div class="timeline-card" id="card-5" data-trigger-val="702">
+                <div class="timeline-card" id="card-4" data-trigger-val="700">
                     <div class="card-top-layout">
                         <div class="card-title-block">
-                            <div class="card-year">Presente Operativo (Órbita Heliosíncrona: 702 km)</div>
-                            <div class="card-title">6. Umbral de Escape Planetario: Proyecto SABIA-Mar</div>
+                            <div class="card-year">Presente Operativo (Órbita Heliosíncrona: 700 km)</div>
+                            <div class="card-title">5. Teledetección Oceánica de Alta Resolución: SABIA-Mar 1</div>
                         </div>
                         <div class="card-side-media has-img"><img src="SABIA-Mar.png" alt="SABIA-Mar"></div>
                     </div>
-                    <div class="card-desc">El simulador supera la altitud del proyecto SABIA-Mar, enfocado en la observación ambiental costera y oceánica. Rebasar esta cota representa el fin de la ingeniería de satélites circunsterrestres locales y el inicio de la navegación hacia el espacio profundo, donde el motor incrementa la velocidad neta por encima de los 11.2 km/s para vencer de forma definitiva la gravedad de la Tierra.</div>
+                    <div class="card-desc">El simulador alcanza los 700 km, cota exacta donde opera el satélite SABIA-Mar 1, desarrollado en conjunto por CONAE e INVAP. Su función primordial radica en generar mapas de los océanos y costas con alta resolución espacial, aportando datos soberanos fundamentales para la productividad del mar y el estudio del cambio climático global.</div>
                 </div>
 
-                <div class="timeline-card" id="card-6" data-trigger-val="2500">
+                <div class="timeline-card" id="card-5" data-trigger-val="705">
+                    <div class="card-top-layout">
+                        <div class="card-title-block">
+                            <div class="card-year">2000 (Altitud Heliosíncrona: 705 km)</div>
+                            <div class="card-title">6. Integración Internacional: Satélite SAC-C</div>
+                        </div>
+                        <div class="card-side-media has-img"><img src="SAC-B.png" alt="SAC-C"></div>
+                    </div>
+                    <div class="card-desc">Apenas un poco más arriba, a los 705 km, se ubica el legado del SAC-C. Esta emblemática misión de observación de la Tierra hizo historia al integrar de forma oficial la prestigiosa Constelación Matutina de la NASA, consolidando la confianza de agencias globales en la calidad de la ingeniería de software y hardware de manufactura argentina.</div>
+                </div>
+
+                <div class="timeline-card" id="card-6" data-trigger-val="740">
+                    <div class="card-top-layout">
+                        <div class="card-title-block">
+                            <div class="card-year">Vanguardia Histórica (Altitud Máxima: 70.000 km)</div>
+                            <div class="card-title">7. Récord Nacional en el Espacio Profundo: Proyecto ATENEA</div>
+                        </div>
+                        <div class="card-side-media has-img"><img src="ATENEA BADGE.jpeg" alt="Proyecto ATENEA"></div>
+                    </div>
+                    <div class="card-desc">Saliendo de la órbita terrestre baja, el vector intercepta el umbral de los 70.000 km. Aquí se inscribe la hazaña del microsatélite argentino ATENEA. Al operar en una órbita elíptica de gran altitud —el doble de la geoestacionaria— durante la histórica misión Artemis II, se consolidó formalmente como el objeto tecnológico de desarrollo nacional que ha alcanzado la mayor distancia de la Tierra hasta la fecha.</div>
+                </div>
+
+                <div class="timeline-card" id="card-7" data-trigger-val="2500">
                     <div class="card-top-layout">
                         <div class="card-title-block">
                             <div class="card-year">Espacio Profundo (Cinturón de Asteroides: ~3.0 UA del Sol)</div>
-                            <div class="card-title">7. Destino Interplanetario: Inserción Orbital en 16 Psyche</div>
+                            <div class="card-title">8. Destino Interplanetario: Inserción Orbital en 16 Psyche</div>
                         </div>
                         <div class="card-side-media"></div>
                     </div>
@@ -511,12 +525,13 @@
         let progress = 0;
         let isCompleted = false;
         
-        const totalDuration = 40; 
+        const totalDuration = 45; 
         const fps = 40;
         const step = 1 / (totalDuration * fps);
 
-        const radii = [55, 90, 130, 180, 240, 300, 370]; 
-        const angles = [0.4, 1.0, 1.8, 2.6, 3.5, 4.4, 5.5]; 
+        // Se reajustaron los radios visuales para renderizar 8 órbitas concéntricas equilibradas
+        const radii = [50, 85, 125, 165, 205, 245, 305, 370]; 
+        const angles = [0.4, 0.9, 1.5, 2.1, 2.8, 3.6, 4.4, 5.4]; 
 
         function initPositions() {
             radii.forEach((r, index) => {
@@ -581,17 +596,25 @@
 
             let virtualAltValue = 0; 
 
-            if (p <= 0.8) {
-                virtualAltValue = Math.round(Math.pow(p / 0.8, 1.5) * 750);
+            if (p <= 0.6) {
+                // Mapeo lineal/curvo de la atmósfera baja y órbita LEO estándar (0 a 750 km)
+                virtualAltValue = Math.round(Math.pow(p / 0.6, 1.5) * 710);
                 altDisplay = `${virtualAltValue.toLocaleString()} km`;
-                currentVel = (3.1 + (p * 10.2)).toFixed(2); 
+                currentVel = (3.1 + (p * 8.2)).toFixed(2); 
+            } else if (p > 0.6 && p <= 0.82) {
+                // Transición rápida hacia la órbita super elíptica de ATENEA (70.000 km)
+                const subFactor = (p - 0.6) / 0.22;
+                virtualAltValue = Math.round(710 + (subFactor * 69290));
+                altDisplay = `${virtualAltValue.toLocaleString()} km`;
+                currentVel = (11.3 + (subFactor * 1.5)).toFixed(2);
             } else {
-                const factorInterplanetario = (p - 0.8) / 0.2; 
-                virtualAltValue = 2500; 
+                // Espacio Profundo
+                const factorInterplanetario = (p - 0.82) / 0.18; 
+                virtualAltValue = 2500; // Trigger interno para Psyche
                 const millonesKm = (factorInterplanetario * 370).toFixed(1); 
                 const ua = (0.002 + (factorInterplanetario * 2.47)).toFixed(2);
                 altDisplay = `${millonesKm} M de km (${ua} UA)`;
-                currentVel = (13.3 + (factorInterplanetario * 12.5)).toFixed(2); 
+                currentVel = (12.8 + (factorInterplanetario * 13.0)).toFixed(2); 
             }
 
             telAlt.textContent = altDisplay;
@@ -600,7 +623,7 @@
             telTemp.textContent = `${currentTemp} K`;
 
             const currentRadius = 15 + (p * 285); 
-            const currentAngle = p * Math.PI * 3.8; 
+            const currentAngle = p * Math.PI * 4.2; 
             const rx = Math.cos(currentAngle) * currentRadius;
             const ry = Math.sin(currentAngle) * currentRadius;
             nepRocket.style.transform = `translate3d(calc(-50% + ${rx}px), calc(-50% + ${ry}px), 0px) scale(1.2)`;
@@ -611,9 +634,14 @@
                 
                 let unlockCondition = false;
                 if (index < 6) {
-                    unlockCondition = (p <= 0.8 && virtualAltValue >= triggerVal) || (p > 0.8);
+                    // Satélites LEO (Hasta SAC-C)
+                    unlockCondition = (p <= 0.6 && virtualAltValue >= triggerVal) || (p > 0.6);
+                } else if (index === 6) {
+                    // ATENEA (70.000 km)
+                    unlockCondition = (p >= 0.82);
                 } else {
-                    unlockCondition = (p >= 0.95); 
+                    // PSYCHE
+                    unlockCondition = (p >= 0.96); 
                 }
 
                 if (unlockCondition) {
