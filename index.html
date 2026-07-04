@@ -384,20 +384,20 @@
             <div class="panel-header">
                 <div class="header-text">
                     <h1>Sistemas de Propulsión Avanzada NEP</h1>
-                    <p>Simulador de Telemetría y Línea Aeroespacial Nacional</p>
+                    <p>Simulador Didáctico de Telemetría y Línea de Aprendizaje Aeroespacial Nacional</p>
                 </div>
             </div>
 
             <div class="telemetry-dashboard">
-                <div class="tel-item">Distancia: <span id="tel-alt" class="tel-value">0 km</span></div>
+                <div class="tel-item">Altitud / Distancia: <span id="tel-alt" class="tel-value">0 km</span></div>
                 <div class="tel-item">Velocidad del Vector: <span id="tel-vel" class="tel-value">0.00 km/s</span></div>
                 <div class="tel-item">Empuje Iónico Continuo: <span id="tel-thrust" class="tel-value">0.00 N</span></div>
                 <div class="tel-item">Núcleo Térmico HTS: <span id="tel-temp" class="tel-value">290 K</span></div>
             </div>
 
             <div class="audio-container">
-                <div class="audio-title">Archivo Histórico: Divulgación UNCIENCIA </div>
-                <div class="audio-sub">Producción de la Universidad Nacional de Córdoba sobre el cohete Canopus II.</div>
+                <div class="audio-title">Archivo Histórico: Divulgación UNCIENCIA (UNC)</div>
+                <div class="audio-sub">Producción de la Universidad Nacional de Córdoba sobre las misiones biológicas y el cohete Canopus II.</div>
                 <audio id="localAudio" controls>
                     <source src="unciencia_podcast_mono_juan%20(1).mp3" type="audio/mpeg">
                     <source src="unciencia_podcast_mono_juan.mp3" type="audio/mpeg">
@@ -475,9 +475,9 @@
                             <div class="card-year">2000 (Altitud Heliosíncrona: 705 km)</div>
                             <div class="card-title">6. Integración Internacional: Satélite SAC-C</div>
                         </div>
-                        <div class="card-side-media has-img"><img src="SAC-B.png" alt="SAC-C"></div>
+                        <div class="card-side-media has-img"><img src="SAC-C.png" alt="SAC-C"></div>
                     </div>
-                    <div class="card-desc">Apenas un poco más arriba, a los 705 km, se ubica el legado del SAC-C. Esta emblemática misión de observación de la Tierra hizo historia al integrar de forma oficial la prestigiosa Constelación Matutina de la NASA, consolidando la confianza de agencias globales en la calidad de la ingeniería de software y hardware de manufactura argentina.</div>
+                    <div class="card-desc">Apenas un poco más arriba, a los 705 km, se ubica el legado del SAC-C. Esta emblemática misión de observation de la Tierra hizo historia al integrar de forma oficial la prestigiosa Constelación Matutina de la NASA, consolidando la confianza de agencias globales en la calidad de la ingeniería de software y hardware de manufactura argentina.</div>
                 </div>
 
                 <div class="timeline-card" id="card-6" data-trigger-val="740">
@@ -529,7 +529,7 @@
         const fps = 40;
         const step = 1 / (totalDuration * fps);
 
-        // Se reajustaron los radios visuales para renderizar 8 órbitas concéntricas equilibradas
+        // Radios y ángulos orbitales estáticos para los 8 elementos del sistema
         const radii = [50, 85, 125, 165, 205, 245, 305, 370]; 
         const angles = [0.4, 0.9, 1.5, 2.1, 2.8, 3.6, 4.4, 5.4]; 
 
@@ -560,7 +560,7 @@
             if (isCompleted) {
                 isCompleted = false;
                 btnAction.classList.remove('reset-mode');
-                btnAction.textContent = "Iniciar Ignición y Simulación de Trayectoria NEP";
+                btnAction.textContent = "Iniciar simulación de la trayectoria";
                 initPositions();
                 timeline.scrollTo({ top: 0, behavior: 'smooth' });
                 return;
@@ -597,20 +597,17 @@
             let virtualAltValue = 0; 
 
             if (p <= 0.6) {
-                // Mapeo lineal/curvo de la atmósfera baja y órbita LEO estándar (0 a 750 km)
                 virtualAltValue = Math.round(Math.pow(p / 0.6, 1.5) * 710);
                 altDisplay = `${virtualAltValue.toLocaleString()} km`;
                 currentVel = (3.1 + (p * 8.2)).toFixed(2); 
             } else if (p > 0.6 && p <= 0.82) {
-                // Transición rápida hacia la órbita super elíptica de ATENEA (70.000 km)
                 const subFactor = (p - 0.6) / 0.22;
                 virtualAltValue = Math.round(710 + (subFactor * 69290));
                 altDisplay = `${virtualAltValue.toLocaleString()} km`;
                 currentVel = (11.3 + (subFactor * 1.5)).toFixed(2);
             } else {
-                // Espacio Profundo
                 const factorInterplanetario = (p - 0.82) / 0.18; 
-                virtualAltValue = 2500; // Trigger interno para Psyche
+                virtualAltValue = 2500; 
                 const millonesKm = (factorInterplanetario * 370).toFixed(1); 
                 const ua = (0.002 + (factorInterplanetario * 2.47)).toFixed(2);
                 altDisplay = `${millonesKm} M de km (${ua} UA)`;
@@ -622,10 +619,21 @@
             telThrust.textContent = `${currentThrust} N`;
             telTemp.textContent = `${currentTemp} K`;
 
-            const currentRadius = 15 + (p * 285); 
-            const currentAngle = p * Math.PI * 4.2; 
-            const rx = Math.cos(currentAngle) * currentRadius;
-            const ry = Math.sin(currentAngle) * currentRadius;
+            // CÁLCULO DE COORDENADAS DEL COHETE ROSA
+            let rx, ry;
+            if (p >= 0.96) {
+                // ANCLAJE EXACTO: Si llega al hito final de Psyche, adopta exactamente sus coordenadas para no pasar de largo
+                const targetRadius = radii[7];
+                const targetAngle = angles[7];
+                rx = Math.cos(targetAngle) * targetRadius;
+                ry = Math.sin(targetAngle) * targetRadius;
+            } else {
+                // Trayectoria espiral normal durante el vuelo
+                const currentRadius = 15 + (p * 285); 
+                const currentAngle = p * Math.PI * 4.2; 
+                rx = Math.cos(currentAngle) * currentRadius;
+                ry = Math.sin(currentAngle) * currentRadius;
+            }
             nepRocket.style.transform = `translate3d(calc(-50% + ${rx}px), calc(-50% + ${ry}px), 0px) scale(1.2)`;
 
             cards.forEach((card, index) => {
@@ -634,13 +642,10 @@
                 
                 let unlockCondition = false;
                 if (index < 6) {
-                    // Satélites LEO (Hasta SAC-C)
                     unlockCondition = (p <= 0.6 && virtualAltValue >= triggerVal) || (p > 0.6);
                 } else if (index === 6) {
-                    // ATENEA (70.000 km)
                     unlockCondition = (p >= 0.82);
                 } else {
-                    // PSYCHE
                     unlockCondition = (p >= 0.96); 
                 }
 
