@@ -499,7 +499,7 @@
                         </div>
                         <div class="card-side-media"></div>
                     </div>
-                    <div class="card-desc">La escala conmuta a unidades astronómicas (UA). Con el reactor operando de manera constante, el empuje iónico continuo compensa la escasez de radiación solar en los bordes del sistema solar interno. Las ecuaciones de transferencia orbital logran interceptar el núcleo metálico del asteroide 16 Psyche, consolidando la transición teórica desde aquellos primeros desarrollos suborbitales de nuestra juventud hacia la exploración del espacio profundo.</div>
+                    <div class="card-desc">La escala conmuta a unidades astronómicas (UA). Con el reactor operando de manera constante, el empuje iónico continuo compensa la escasez de radiación solar en los bordes del sistema solar interno. Las ecuaciones de transferencia orbital logran interceptar el núcleo metálico del asteroide 16 Psyche, consolidando la transición teórica desde aquellos primeros desarrollos suborbitales hacia la exploración del espacio profundo.</div>
                 </div>
 
             </div>
@@ -619,21 +619,16 @@
             telThrust.textContent = `${currentThrust} N`;
             telTemp.textContent = `${currentTemp} K`;
 
-            // CÁLCULO DE COORDENADAS DEL COHETE ROSA
-            let rx, ry;
-            if (p >= 0.96) {
-                // ANCLAJE EXACTO: Si llega al hito final de Psyche, adopta exactamente sus coordenadas para no pasar de largo
-                const targetRadius = radii[7];
-                const targetAngle = angles[7];
-                rx = Math.cos(targetAngle) * targetRadius;
-                ry = Math.sin(targetAngle) * targetRadius;
-            } else {
-                // Trayectoria espiral normal durante el vuelo
-                const currentRadius = 15 + (p * 285); 
-                const currentAngle = p * Math.PI * 4.2; 
-                rx = Math.cos(currentAngle) * currentRadius;
-                ry = Math.sin(currentAngle) * currentRadius;
-            }
+            //
+            const finalRadius = radii[7];
+            const finalAngle = angles[7] + 4 * Math.PI; 
+            
+            const currentRadius = 15 + p * (finalRadius - 15);
+            const currentAngle = p * finalAngle;
+            
+            let rx = Math.cos(currentAngle) * currentRadius;
+            let ry = Math.sin(currentAngle) * currentRadius;
+
             nepRocket.style.transform = `translate3d(calc(-50% + ${rx}px), calc(-50% + ${ry}px), 0px) scale(1.2)`;
 
             cards.forEach((card, index) => {
