@@ -242,7 +242,7 @@
             box-shadow: 0 0 10px var(--arg-blue);
         }
 
-        /* Timeline  mmm*/
+        /* Timeline */
         .timeline-container {
             flex: 1;
             overflow-y: auto;
@@ -499,7 +499,7 @@
                         </div>
                         <div class="card-side-media"></div>
                     </div>
-                    <div class="card-desc">La escala conmuta a unidades astronómicas (UA). Con el reactor operando de manera constante, el empuje iónico continuo compensa la escasez de radiación solar en los bordes del sistema solar interno. Las ecuaciones de transferencia orbital logran interceptar el núcleo metálico del asteroide 16 Psyche, consolidando la transición teórica desde aquellos primeros desarrollos suborbitales hacia la exploración del espacio profundo.</div>
+                    <div class="card-desc">La escala conmuta a unidades astronómicas (UA). Con el reactor operando de manera constante, el empuje iónico continuo compensa la escasez de radiación solar en los bordes del sistema solar interno. Las ecuaciones de transferencia orbital logran interceptar el núcleo metálico del asteroide 16 Psyche, consolidando la transición teórica desde aquellos primeros desarrollos suborbitales de nuestra juventud hacia la exploración del espacio profundo.</div>
                 </div>
 
             </div>
@@ -510,6 +510,7 @@
     </div>
 
     <script>
+        // CONFIGURACIÓN INICIAL DEL SIMULADOR - NUEVA REVISIÓN V1.0.3
         const btnAction = document.getElementById('btnAction');
         const progressBar = document.getElementById('progressBar');
         const timeline = document.getElementById('timeline');
@@ -529,7 +530,7 @@
         const fps = 40;
         const step = 1 / (totalDuration * fps);
 
-        // Radios y ángulos orbitales estáticos para los 8 elementos del sistema
+        // Radios y ángulos estáticos calibrados para los 8 elementos en pantalla
         const radii = [50, 85, 125, 165, 205, 245, 305, 370]; 
         const angles = [0.4, 0.9, 1.5, 2.1, 2.8, 3.6, 4.4, 5.4]; 
 
@@ -619,7 +620,7 @@
             telThrust.textContent = `${currentThrust} N`;
             telTemp.textContent = `${currentTemp} K`;
 
-            //
+            // ESPIRAL INTERPLANETARIA AJUSTADA SIN CORTES NI SALTOS BRUSCOS
             const finalRadius = radii[7];
             const finalAngle = angles[7] + 4 * Math.PI; 
             
